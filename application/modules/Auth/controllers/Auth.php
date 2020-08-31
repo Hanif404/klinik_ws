@@ -31,7 +31,7 @@ class Auth extends MY_Controller {
             "is_bidan"=>$data[0]->is_bidan,
         ];
         $token=$this->generateToken($payload);
-				$return = array("token"=>$token, "id"=> $data[0]->id);
+				$return = array("token"=>$token, "id"=> $data[0]->id, "is_bidan"=> $data[0]->is_bidan);
         $this->wrapper(true,$return,"success login",200);
   }
 
