@@ -12,9 +12,9 @@ class Rekammedis extends MY_Controller {
 
 	public function index($idreg){
 		$return = $this->RekammedisModel->getAllData($idreg);
-		if(!$return){
-				$this->wrapper(false, null,'data not found',500);
-		}
+		// if(!$return){
+		// 		$this->wrapper(false, null,'data not found',500);
+		// }
 		$this->wrapper(true, $return,'success get data',200);
 	}
 

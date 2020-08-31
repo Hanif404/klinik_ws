@@ -20,9 +20,11 @@ class KonsultasiModel extends CI_Model{
 
 	public function getCommentUser($id){
 		return $this->db->select('ksl.*, pg.name')
+						->join($this->table1 .' reg', 'ksl.reg_id = reg.id')
 						->join($this->table3 .' pg', 'ksl.user_id = pg.id')
 						->where('ksl.user_id != '.$id, null, false)
 						->where('is_read','0')
+						->where('is_konsultasi','1')
 						->get($this->table2 .' ksl')
 						->result();
 	}

@@ -158,7 +158,7 @@ class Auth extends MY_Controller {
 			$data = [
 				'password' => 'e10adc3949ba59abbe56e057f20f883e'
 			];
-			$result = $this->Authmodel->updatePassword($request['email'], $data);
+			$result = $this->Authmodel->resetPassword($request['email'], $data);
 	 	 if(!$result){
 	 			 $this->wrapper(false,null,'failed change password',500);
 	 	 }

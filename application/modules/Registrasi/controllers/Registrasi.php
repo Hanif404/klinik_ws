@@ -12,9 +12,9 @@ class Registrasi extends MY_Controller {
 
 	public function index($idUser){
 		$return = $this->RegistrasiModel->getAllData($idUser);
-		if(!$return){
-				$this->wrapper(false, null,'Registrasi not found',500);
-		}
+		// if(!$return){
+		// 		$this->wrapper(false, array(),'Registrasi not found',404);
+		// }
 		$this->wrapper(true, $return,'success get registrasi',200);
 	}
 
@@ -29,9 +29,9 @@ class Registrasi extends MY_Controller {
 	// user
 	public function getByUser(){
 		$return = $this->RegistrasiModel->getAllData($this->id);
-		if(!$return){
-				$this->wrapper(false, null,'Registrasi not found',500);
-		}
+		// if(!$return){
+		// 		$this->wrapper(false, null,'Registrasi not found',500);
+		// }
 		$this->wrapper(true, $return,'success get registrasi',200);
 	}
 

@@ -32,8 +32,13 @@ class Authmodel extends CI_Model{
                       ->result();
   }
 
-	public function updatePassword($id, $data){
+	public function resetPassword($id, $data){
 		return $this->db->where('email', $id)
+										->update($this->table, $data);
+	}
+
+	public function updatePassword($id, $data){
+		return $this->db->where('id', $id)
 										->update($this->table, $data);
 	}
 
