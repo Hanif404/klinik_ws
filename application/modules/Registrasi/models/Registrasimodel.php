@@ -1,17 +1,20 @@
 <?php
 class RegistrasiModel extends CI_Model{
 	private $table='registrasi';
+	private $table1='pengguna';
+
 	public function __construct(){
 		parent::__construct();
   }
 
 	public function getAllData($id){
-		$this->db->select('*');
+		$this->db->select('reg.*, pg.name');
+		$this->db->join($this->table1.' pg', 'reg.user_id=pg.id');
 		if($id != "0"){
 			$this->db->where('user_id', $id);
 		}
 		$this->db->order_by('id','desc');
-		return $this->db->get($this->table)->result();
+		return $this->db->get($this->table." reg")->result();
 	}
 
 	public function getOneData($idUser, $id){
